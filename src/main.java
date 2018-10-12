@@ -1,3 +1,5 @@
+import org.bson.types.ObjectId;
+
 public class main {
     public static void main(String[] args) {
 
@@ -14,9 +16,8 @@ public class main {
         //Add User To mlab
         db.addUser("test123456","123456","test");
         */
-
         /********************Login**********************/
-        
+        /*
         LoginDB db = new LoginDB();
         boolean username = false;
         boolean password = false;
@@ -38,5 +39,19 @@ public class main {
             System.out.println("Password Correct !!");
         else
             System.out.println("Password Incorrect !!");
+        */
+        /***********************Lobby**********************/
+
+        LobbyDB db = new LobbyDB();
+        db.showRoom();
+        //db.createRoom("Test");
+
+        /*Not Finish
+        if(db.joinRoom(new ObjectId("5bc0487173707c2ce830d044")))
+            System.out.println("Go to Game");
+        else
+            System.out.println("Can't Join this room");
+        db.showRoom();
+        */
     }
 }

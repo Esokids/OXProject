@@ -8,7 +8,6 @@ public class RegisterDB {
     MongoClientURI uri = new MongoClientURI("mongodb://admin:password1@ds135866.mlab.com:35866/oxproject");
     MongoClient client = new MongoClient(uri);
     MongoDatabase db = client.getDatabase(uri.getDatabase());
-    BasicDBObject query = new BasicDBObject();
     MongoCollection<Document> col = db.getCollection("users");
 
     public boolean checkUserExists(String username){
