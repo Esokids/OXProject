@@ -12,8 +12,8 @@ public class RegisterDB {
     MongoCollection<Document> col = db.getCollection("users");
 
     public boolean checkUserExists(String username){
-        Document findQuery = new Document("user",username);
-        MongoCursor<Document> cursor = col.find(findQuery).iterator();
+        Document findUser = new Document("user",username);
+        MongoCursor<Document> cursor = col.find(findUser).iterator();
             if(cursor.hasNext())
                 return true;
             else
