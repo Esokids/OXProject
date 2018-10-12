@@ -12,6 +12,7 @@ public class RegisterDB {
     BasicDBObject query = new BasicDBObject();
     MongoCollection<Document> col = db.getCollection("users");
     ArrayList<String> arr = new ArrayList<>();
+
     public boolean checkUserExists(String username){
         Document findQuery = new Document("user",username);
         MongoCursor<Document> cursor = col.find(findQuery).iterator();
@@ -19,6 +20,10 @@ public class RegisterDB {
                 return true;
             else
                 return false;
+    }
+    public void addUser(String username,String password,String nickname){
+        col.insertOne(new Document("user",username).append("pass",password).append("nickname",nickname)
+                .append("scoreWin",0).append("scoreLose",0).append("scoreDraw",0));
     }
 
 }
