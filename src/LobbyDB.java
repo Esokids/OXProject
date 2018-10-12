@@ -22,21 +22,19 @@ public class LobbyDB {
             System.out.println("Room name: " + rooms.get("name")+", Units: "+rooms.get("units"));
         }
     }
-    /* Not Finish !!
-    public boolean joinRoom(ObjectId id){
-        Document findRoom = new Document("/_id",id);
+
+    public boolean joinRoom(String name){
+        Document findRoom = new Document("_id",new ObjectId(name));
         MongoCursor<Document> cursor = col.find(findRoom).iterator();
-        System.out.println(findRoom.get("_id"));
-        if(cursor.hasNext()){
-            if((int)findRoom.get("units")==2)
+        if(cursor.hasNext()) {
+            Document room = cursor.next();
+            if((int)room.get("units") == 2)
                 return false;
-            else{
-                col.updateOne(findRoom, new Document("$set",new Document("units",2)));
+            else {
+                col.updateOne(findRoom,new Document("$set",new Document("units",2)));
                 return true;
             }
         }
-        System.out.println(findRoom);
         return false;
     }
-    */
 }

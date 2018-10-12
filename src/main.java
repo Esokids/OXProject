@@ -44,14 +44,10 @@ public class main {
 
         LobbyDB db = new LobbyDB();
         db.showRoom();
-        //db.createRoom("Test");
 
-        /*Not Finish
-        if(db.joinRoom(new ObjectId("5bc0487173707c2ce830d044")))
-            System.out.println("Go to Game");
+        if(db.joinRoom("5bc0487173707c2ce830d044"))
+            System.out.println("You can Join this Room");
         else
-            System.out.println("Can't Join this room");
-        db.showRoom();
-        */
+            System.out.println("Please Join Another Room");
     }
 }
