@@ -23,13 +23,12 @@ public class LobbyDB {
         while(cursor.hasNext()){
             Document rooms = cursor.next();
             list.add(rooms);
-            //System.out.println("Room name: " + rooms.get("name")+", Units: "+rooms.get("units"));
         }
         return list;
     }
 
-    public boolean joinRoom(String name){
-        Document findRoom = new Document("_id",new ObjectId(name));
+    public boolean joinRoom(String id){
+        Document findRoom = new Document("_id",new ObjectId(id));
         MongoCursor<Document> cursor = col.find(findRoom).iterator();
         if(cursor.hasNext()) {
             Document room = cursor.next();

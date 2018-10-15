@@ -41,13 +41,13 @@ public class main {
         else
             System.out.println("Password Incorrect !!");
         */
-
+        /*
         //Welcome
         LoginDB db = new LoginDB();
         String nickname = db.getNickname("nutty");
         System.out.println(nickname);
-
-        /***********************Lobby**********************/
+        */
+        /***********************Lobby*********************/
         /*
         List<Document> list = new ArrayList<>();
         LobbyDB db = new LobbyDB();

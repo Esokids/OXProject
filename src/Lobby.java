@@ -8,9 +8,9 @@ import org.bson.*;
 public class Lobby {
     private JList list1;
     private JList list2;
-    private JTable table1;
     private JPanel ShowRoomsPanel;
     private JButton button1;
+    private JButton joinButton;
     LobbyDB db = new LobbyDB();
 
     public Lobby() {
@@ -18,6 +18,18 @@ public class Lobby {
             @Override
             public void actionPerformed(ActionEvent e) {
                 showList();
+            }
+        });
+        joinButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                List<Document> list = db.showRoom();
+                int i = list1.getSelectedIndex();
+                String id = list.get(i).get("_id").toString();
+                if(db.joinRoom(id))
+                    JOptionPane.showMessageDialog(null,"You can join this room");
+                else
+                    JOptionPane.showMessageDialog(null,"You can not join this room");
             }
         });
     }
@@ -40,15 +52,7 @@ public class Lobby {
         list1.setModel(model1);
         list2.setModel(model2);
     }
-    /*
-    public void showTable(){
-        DefaultTableModel model = new DefaultTableModel();
-        List<Document> list = db.showRoom();
-        for(int i = 0 ; i<list.size() ; i++){
-            model.
-        }
-    }
-    */
+
     public JPanel getShowRoomsPanel() {
         return ShowRoomsPanel;
     }
