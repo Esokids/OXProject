@@ -27,4 +27,14 @@ public class LoginDB {
         else
             return false;
     }
+
+    public String getNickname(String username){
+        Document findNickname = new Document("user",username);
+        MongoCursor<Document> cursor = col.find(findNickname).iterator();
+        if(cursor.hasNext()) {
+            Document nickname = cursor.next();
+            return (String)nickname.get("nickname");
+        }
+        return "?????";
+    }
 }

@@ -41,16 +41,22 @@ public class main {
         else
             System.out.println("Password Incorrect !!");
         */
-        /***********************Lobby**********************/
 
+        //Welcome
+        LoginDB db = new LoginDB();
+        String nickname = db.getNickname("nutty");
+        System.out.println(nickname);
+
+        /***********************Lobby**********************/
+        /*
         List<Document> list = new ArrayList<>();
         LobbyDB db = new LobbyDB();
         list = db.showRoom();
-        //showroom 
+        //showroom
         for(int i = 0 ; i<list.size() ; i++) {
             System.out.println(list.get(i).get("_id") + " " +list.get(i).get("name") + " " + list.get(i).get("units"));
         }
-
+        */
         /*
         if(db.joinRoom("5bc0487173707c2ce830d044"))
             System.out.println("You can Join this Room");
