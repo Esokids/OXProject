@@ -27,5 +27,4 @@ public class LoginDB {
         else
             return false;
     }
-
 }

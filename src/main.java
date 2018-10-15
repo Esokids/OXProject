@@ -1,4 +1,5 @@
-import org.bson.types.ObjectId;
+import org.bson.Document;
+import java.util.*;
 
 public class main {
     public static void main(String[] args) {
@@ -42,12 +43,19 @@ public class main {
         */
         /***********************Lobby**********************/
 
+        List<Document> list = new ArrayList<>();
         LobbyDB db = new LobbyDB();
-        db.showRoom();
+        list = db.showRoom();
+        //showroom 
+        for(int i = 0 ; i<list.size() ; i++) {
+            System.out.println(list.get(i).get("_id") + " " +list.get(i).get("name") + " " + list.get(i).get("units"));
+        }
 
+        /*
         if(db.joinRoom("5bc0487173707c2ce830d044"))
             System.out.println("You can Join this Room");
         else
             System.out.println("Please Join Another Room");
+         */
     }
 }
