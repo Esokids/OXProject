@@ -4,7 +4,6 @@ import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import org.bson.*;
 import org.bson.types.ObjectId;
-
 import java.util.*;
 
 public class LobbyDB {
@@ -21,8 +20,7 @@ public class LobbyDB {
         List<Document> list = new ArrayList<>();
         MongoCursor<Document> cursor = col.find().iterator();
         while(cursor.hasNext()){
-            Document rooms = cursor.next();
-            list.add(rooms);
+            list.add(cursor.next());
         }
         return list;
     }

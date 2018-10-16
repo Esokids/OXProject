@@ -63,5 +63,15 @@ public class main {
         else
             System.out.println("Please Join Another Room");
          */
+
+        /***********************LeaderBoard*********************/
+        List<Document> list = new ArrayList<>();
+        ProfileDB db = new ProfileDB();
+        list = db.showLeaderBoard();
+
+        for(int i = 0 ; i<list.size() ; i++){
+            System.out.println("No. "+i+" Nickname : " + list.get(i).get("nickname") + ", ScoreWin : " + list.get(i).get("scoreWin")
+            + ", ScoreDraw : " + list.get(i).get("scoreDraw") + ", ScoreLose : " + list.get(i).get("scoreLose"));
+        }
     }
 }
