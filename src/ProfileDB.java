@@ -31,6 +31,14 @@ public class ProfileDB {
         return "?????";
     }
 
+    public void setNickName(String username, String newNickname){
+        Document findNickname = new Document("user",username);
+        MongoCursor<Document> cursor = col.find(findNickname).iterator();
+        if(cursor.hasNext()){
+            col.updateOne(findNickname,new Document("$set",new Document("nickname",newNickname)));
+        }
+    }
+
     public int getScoreWin(String username){
         Document findScoreWin = new Document("user",username);
         MongoCursor<Document> cursor = col.find(findScoreWin).iterator();
