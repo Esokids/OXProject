@@ -23,5 +23,5 @@ public class RegisterDB {
         col.insertOne(new Document("user",username).append("pass",password).append("nickname",nickname)
                 .append("scoreWin",0).append("scoreLose",0).append("scoreDraw",0));
     }
-
+    
 }
